@@ -43,7 +43,7 @@ from auto_trading_aim.data_loader_dict import DataLoaderDict
 # contenente oggetti di tipo DataLoader, che scarica i dati di mercato relativi ai prezzi di 
 # chiusura ("Close") e i volumi ("Volume") per ogni giorno (lavorativo) del 2021 
 historical_data = DataLoaderDict(tickers, start="2021-01-01", end="2021-12-31", interval="1d") # scarica i dati
-historical_data.save(path = "data/") # salva i dati
+historical_data.save(path ="data/my_data.txt") # salva i dati
 
 # Descrizione testuale dei dati di prezzi e di volumi, con:
 # - codice del ticker selezionato, periodo e intervallo
@@ -84,6 +84,7 @@ portfolio1["ENI.MI"] = Asset(ticker_name = "ENI.MI", prices = historical_data["E
 # df.pct_change(1)
 
 # Stampa a schermo: 
+
 # - nome del ticker
 # - la quantità di azioni possedute
 # - la media e la varianza dei rendimenti del ticker nel periodo
@@ -109,7 +110,6 @@ portfolio1.plot()
 portfolio2 = portfolio1["ENEL.MI"] / 2 + Asset(ticker_name = "ISP.MI", prices = historical_data["ISP.MI"].prices, volume_owned = 9)
 portfolio3 = portfolio1 + portfolio2
 portfolio3.plot()
-
 
 ############################################################################
 ### Punto 3
